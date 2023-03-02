@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
       .then(data => {
         const people = data.results;
         // res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write('<table>');
+        res.write('<table border="1">');
         res.write('<tr><th>Name</th><th>Height</th><th>Birth Year</th><th>Gender</th><th>url</th></tr>');
         for (let person of people) {
           res.write(`<tr><td>${person.name}</td><td>${person.height}</td><td>${person.birth_year}</td><td>${person.gender}</td><td><a href="${person.url}">url</a></td></tr>`);
