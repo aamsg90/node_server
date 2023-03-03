@@ -18,9 +18,9 @@ const server = http.createServer((req, res) => {
         // res.writeHead(200, {'Content-Type': 'text/html'});
         res.write('<table border="1">');
         res.write('<tr><th>Name</th><th>Height</th><th>Birth Year</th><th>Gender</th><th>url</th></tr>');
-        for (let person of people) {
+        people.forEach(person => {
           res.write(`<tr><td>${person.name}</td><td>${person.height}</td><td>${person.birth_year}</td><td>${person.gender}</td><td><a href="${person.url}">url</a></td></tr>`);
-        }
+        })
         res.write('</table>');
         res.end();
       })
