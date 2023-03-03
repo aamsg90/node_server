@@ -1,16 +1,14 @@
 const http = require('http');
-const url = require('url');
 
 const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url, true);
-  const path = parsedUrl.pathname;
+  const url = req.url;
 
-  if (path === '/') {
+  if (url === '/') {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write('<h1>Welcome to my server!</h1>');
     res.write('<img src="https://picsum.photos/200/300">');
     res.end();
-  } else if (path === '/list') {
+  } else if (url === '/list') {
     fetch('https://swapi.dev/api/people')
       .then(response => response.json())
       .then(data => {
