@@ -13,7 +13,7 @@ const server = http.createServer((req, res) => {
       .then(response => response.json())
       .then(data => {
         const people = data.results;
-        // res.writeHead(200, {'Content-Type': 'text/html'});
+        res.writeHead(200, {'Content-Type': 'text/html'});
         res.write('<table border="1">');
         res.write('<tr><th>Name</th><th>Height</th><th>Birth Year</th><th>Gender</th><th>url</th></tr>');
         people.forEach(person => {
